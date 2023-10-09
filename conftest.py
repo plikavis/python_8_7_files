@@ -44,5 +44,3 @@ def create_archive():
     pass
     os.remove('tmp/test.zip')
     os.rmdir('tmp')
-
-

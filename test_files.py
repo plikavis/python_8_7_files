@@ -1,7 +1,5 @@
 import os
 from zipfile import ZipFile
-
-import openpyxl
 from openpyxl import load_workbook
 from pypdf import PdfReader
 from xlrd import open_workbook
@@ -20,7 +18,7 @@ def test_check_sizes():
 
 def test_check_txt():
     with ZipFile('tmp/test.zip', 'r') as fz:
-        text = fz.read('text.txt ')  #файлы из архива
+        text = fz.read('text.txt ')  # файлы из архива
         with open('resources/text.txt ', 'r') as f:
             text_from_res = bytes(f.read(), 'ascii')
             assert text_from_res == text
@@ -36,7 +34,6 @@ def test_pdf():
             assert pdf_from_res.pages[i].extract_text() == pdf_from_arc.pages[i].extract_text()
 
 
-
 def test_xls():
     with (ZipFile('tmp/test.zip', 'r') as fz):
         xsl_from_res = open_workbook(os.path.join(RESOURCES_PATH, "file_example_XLS_10.xls"))
@@ -47,7 +44,6 @@ def test_xls():
         for rx in range(sheet_res.nrows):
             for cx in range(sheet_res.ncols):
                 assert sheet_res.cell_value(rx, cx) == sheet_arc.cell_value(rx, cx)
-
 
 
 def test_xlsx():
@@ -65,12 +61,3 @@ def test_xlsx():
                 rc += 1
             rx += 1
         workbook_res.close()
-
-
-
-
-
-
-
-
-
