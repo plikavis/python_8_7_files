@@ -1,5 +1,7 @@
 import os.path
 import time
+import zipfile
+from zipfile import ZipFile
 
 import requests
 from selene import query
@@ -33,3 +35,5 @@ def test_download_file_with_selene_by_button(our_browser):
     with open('tmp/README.rst') as f:
         text = f.read()
         assert "framework makes it easy to write" in text
+
+

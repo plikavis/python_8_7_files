@@ -2,7 +2,7 @@ import os
 
 from pypdf import PdfReader
 
-from utils import RESOURCES_PATH
+from examples.utils import RESOURCES_PATH
 
 reader = PdfReader(os.path.join(RESOURCES_PATH, "Python Testing with Pytest (Brian Okken).pdf"))
 number_of_pages = len(reader.pages)
